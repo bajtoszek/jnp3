@@ -10,9 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float m_Speed = 100f;
 
+    [SerializeField]
+    private Weapon m_Weapon = null;
+
     private float m_Vertical = 0f;
 
     private float m_Horizontal = 0f;
+
+    private bool m_Shoot = false;
 
     private readonly int m_HorizontalAnimatorHash = Animator.StringToHash("Horizontal");
 
@@ -22,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         m_Horizontal = Input.GetAxis("Horizontal");
         m_Vertical = Input.GetAxis("Vertical");
+
+        m_Shoot = Input.GetButton("Shoot");
     }
 
     private void UpdateAnimator()
@@ -40,5 +47,10 @@ public class PlayerController : MonoBehaviour
     {
         GetInput();
         UpdateAnimator();
+
+        if (m_Shoot)
+        {
+            m_Weapon.Fire();
+        }
     }
 }
