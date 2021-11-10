@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float m_Speed = 100f;
 
     [SerializeField]
-    private Weapon m_Weapon = null;
+    private List<Weapon> m_Weapons = null;
 
     private float m_Vertical = 0f;
 
@@ -50,7 +50,10 @@ public class PlayerController : MonoBehaviour
 
         if (m_Shoot)
         {
-            m_Weapon.Fire();
+            foreach (Weapon weapon in m_Weapons)
+            {
+                weapon.Fire();
+            }
         }
     }
 }

@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
-    private GameObject m_ProjectilePrefab = null;
+    private ProjectileMovement m_ProjectilePrefab = null;
 
     [SerializeField]
     private Transform m_Emitter = null;
@@ -13,13 +12,13 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private float m_RateOfFire = 10f;
 
-    private PrefabPool m_Pool = null;
+    private PrefabPool<ProjectileMovement> m_Pool = null;
 
     private Coroutine m_LimiterCoroutine = null;
 
     private void Awake()
     {
-        m_Pool = new PrefabPool(m_ProjectilePrefab);
+        m_Pool = PoolManager.Instance.GetPool(m_ProjectilePrefab);
     }
 
     public bool Fire()
@@ -35,10 +34,8 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator RateOfFireLimiterCoroutine()
     {
-        GameObject projectileInstance = m_Pool.Get();//Instantiate(m_ProjectilePrefab, m_Emitter.position, m_Emitter.rotation);
-
-        projectileInstance.transform.SetPositionAndRotation(m_Emitter.position, m_Emitter.rotation);
-        projectileInstance.SetActive(true);
+        ProjectileMovement projectileInstance = m_Pool.Get();
+        projectileInstance.Restart(m_Emitter.position, m_Emitter.rotation);
 
         yield return new WaitForSeconds(1f / m_RateOfFire);
 

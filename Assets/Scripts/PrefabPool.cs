@@ -1,46 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabPool 
-{
-    private Queue<GameObject> m_Pool = new Queue<GameObject>();
-    
-    private GameObject m_Prefab;
+public interface IPrefabPool
+{ 
 
-    public PrefabPool(GameObject prefab)
+}
+
+public class PrefabPool<T> : IPrefabPool where T :APooledObject 
+{
+    private Queue<T> m_Pool = new Queue<T>();
+    
+    private T m_Prefab;
+
+    public PrefabPool(T prefab)
     {
         m_Prefab = prefab;
     }
 
-    public GameObject Get()
+    public T Get()
     {
-        GameObject instance;
+        T instance;
 
         if (m_Pool.Count > 0)
         {
             instance = m_Pool.Dequeue();
-            return instance;
         }
-
-        instance = GameObject.Instantiate(m_Prefab);
-
-        APooledObject pooledObject = instance.GetComponent<APooledObject>();
-        if (pooledObject != null)
+        else
         {
-            pooledObject.Pool = this;
+            instance = GameObject.Instantiate(m_Prefab);
+
+            PooledObjectWrapper<T> wrapper = new PooledObjectWrapper<T>(instance, this);
+            instance.Initialize(wrapper);
         }
 
         return instance;
     }
 
-    public void Return(GameObject instance)
+    public void Return(T instance)
     {
         if (instance == null)
         {
             return;
         }
 
-        instance.SetActive(false);
+        instance.gameObject.SetActive(false);
         m_Pool.Enqueue(instance);
     }
 }
