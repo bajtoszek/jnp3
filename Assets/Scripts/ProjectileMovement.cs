@@ -17,7 +17,7 @@ public class ProjectileMovement : APooledObject
         m_Rigidbody.MovePosition(targetPosition);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void HandleObjectHit(bool applyDamage, DamageInfo damgeInfo)
     {
         ReturnToPool();
     }
