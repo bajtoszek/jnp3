@@ -21,7 +21,7 @@ public abstract class ASingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private void Awake()
     {
-        if (m_Instance != null && m_Instance != null)
+        if (m_Instance != null && m_Instance != this)
         {
             Debug.LogError($"Singleton of type {GetType()} already exists! Destroying illegal copy {name}");
             Destroy(gameObject);

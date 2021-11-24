@@ -35,7 +35,7 @@ public abstract class APooledObject : MonoBehaviour
         m_Wrapper = wrapper;
     }
 
-    protected void ReturnToPool()
+    public void ReturnToPool()
     {
         m_Wrapper.Return();
     }

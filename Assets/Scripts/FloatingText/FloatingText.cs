@@ -9,4 +9,16 @@ public class FloatingText : APooledObject
     {
         m_TextMesh.text = text;
     }
+
+    public void Reset(string text, Vector3 position)
+    {
+        gameObject.SetActive(true);
+        SetText(text);
+        transform.position = position;
+    }
+
+    public void Hide()
+    {
+        ReturnToPool();
+    }
 }
