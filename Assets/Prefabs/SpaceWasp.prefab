@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82db8eeafee84c444b1dc09e68ed7d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MovementSpeed: {x: 5, y: 5}
+  m_SideMovementAmplitude: 10
+  m_Rigidbody: {fileID: 6040415532934211481}
+  m_DestructibleObject: {fileID: 6040415532934211463}
 --- !u!136 &6040415532934211480
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61,7 +65,7 @@ CapsuleCollider:
   m_Radius: 2.5
   m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!54 &6040415532934211481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,8 +123,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnDestroyed:
     m_PersistentCalls:
-      m_Calls: []
-  m_TotalHealthpoints: 1000
+      m_Calls:
+      - m_Target: {fileID: 6040415532934211483}
+        m_TargetAssemblyTypeName: WaspMovement, Assembly-CSharp
+        m_MethodName: HandleDestroyed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_TotalHealthpoints: 100
   m_FloatingTextPrefab: {fileID: 6849007179813323748, guid: ae34a7d6a8af7c044a8e32075d64cc14,
     type: 3}
   m_HealthbarOffset: {x: 0, y: 10, z: 0}

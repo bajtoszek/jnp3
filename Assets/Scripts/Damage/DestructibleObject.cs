@@ -76,7 +76,7 @@ public class DestructibleObject : MonoBehaviour
         damageText.Reset(text, position);
     }
 
-    private void Reset()
+    public void Reset()
     {
         m_CurrentHealthpoints = m_TotalHealthpoints;
         m_IsDestroyed = false;
