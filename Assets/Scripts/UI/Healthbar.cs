@@ -24,7 +24,7 @@ public class Healthbar : APooledObject
     {
         gameObject.SetActive(true);
 
-        transform.parent = parent;
+        transform.SetParent(parent);
         transform.localPosition = offset;
     }
 }

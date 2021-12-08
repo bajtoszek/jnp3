@@ -19,11 +19,35 @@ public class GameplayManager : ASingleton<GameplayManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            m_Paused = !m_Paused;
-            Time.timeScale = m_Paused ? 0f : 1f;
-
-            m_UIGamePanel.SetPauseMenuVisible(m_Paused);
+            TogglePause();        
         }   
+    }
+
+    public void TogglePause()
+    {
+        SetPause(!m_Paused);
+        m_UIGamePanel.SetPauseMenuVisible(m_Paused);
+    }
+
+    private void SetPause(bool paused)
+    {
+        m_Paused = paused;
+        Time.timeScale = m_Paused ? 0f : 1f;
+    }
+
+    public void RestartLevel()
+    {
+        SceneLoader.Instance.LoadScene(SceneNamesConsts.SPACE_SCENE_NAME, null);
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneLoader.Instance.LoadScene(SceneNamesConsts.MAIN_MENU_SCENE_NAME, null);
+    }
+
+    private void OnDestroy()
+    {
+        SetPause(false);
     }
 
 #if UNITY_EDITOR
