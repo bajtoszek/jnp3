@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1498458144819777340}
   - component: {fileID: 1498458144819777280}
   - component: {fileID: 4735236123148229844}
-  m_Layer: 9
-  m_Name: Projectile
+  m_Layer: 10
+  m_Name: ProjectileEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498458144819777343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.58, y: 11.604, z: -5.322}
+  m_LocalPosition: {x: 4.43, y: 11.604, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74dc2d5e7691c864b85df0b57629371f, type: 2}
+  - {fileID: 2100000, guid: 38a7257bdfc33454398f9c6a46618138, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 3.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -169,7 +169,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1498458144819777280
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36cef6c4dfd04d4caecb216388279ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementSpeed: 80
+  m_MovementSpeed: 20
   m_Rigidbody: {fileID: 1498458144819777341}
   m_TrailRenderer: {fileID: 1498458144819777282}
 --- !u!114 &4735236123148229844

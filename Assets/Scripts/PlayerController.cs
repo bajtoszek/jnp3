@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     private float m_Speed = 100f;
 
     [SerializeField]
-    private List<Weapon> m_Weapons = null;
+    private WeaponList m_Weapons = null;
+
+    [SerializeField]
+    private Rigidbody m_Rigidbody = null;
 
     private float m_Vertical = 0f;
 
@@ -40,8 +43,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 deltaPosition = new Vector3(m_Horizontal, 0f, m_Vertical);
-        transform.position += deltaPosition * Time.deltaTime * m_Speed;
+        Vector3 newPosition = m_Rigidbody.position +  new Vector3(m_Horizontal, 0f, m_Vertical) * Time.deltaTime * m_Speed;
+        m_Rigidbody.MovePosition(newPosition);
     }
 
     private void Update()
@@ -51,10 +54,13 @@ public class PlayerController : MonoBehaviour
 
         if (m_Shoot)
         {
-            foreach (Weapon weapon in m_Weapons)
-            {
-                weapon.Fire();
-            }
+            m_Weapons.FireAll();
         }
+    }
+
+    public void HandleDestroyed()
+    {
+        GameplayManager.Instance.HandlePlayerDestroyed();
+        Destroy(gameObject);
     }
 }

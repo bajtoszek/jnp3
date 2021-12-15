@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : ASingleton<SceneLoader>
+public static class SceneLoader
 {
     private class LoadSceneTask
     {
@@ -44,17 +43,16 @@ public class SceneLoader : ASingleton<SceneLoader>
         }
     }
 
-    private Dictionary<string, Scene> m_LoadedScenes = new Dictionary<string, Scene>();
+    private static Dictionary<string, Scene> m_LoadedScenes = new Dictionary<string, Scene>();
 
-    private Dictionary<string, LoadSceneTask> m_LoadingTasks = new Dictionary<string, LoadSceneTask>();
+    private static Dictionary<string, LoadSceneTask> m_LoadingTasks = new Dictionary<string, LoadSceneTask>();
 
-    private void Start()
+    static SceneLoader()
     {
         RegisterLoadedScenes();
-        DontDestroyOnLoad(gameObject);
     }
 
-    private void RegisterLoadedScenes()
+    private static void RegisterLoadedScenes()
     {
         m_LoadedScenes.Clear();
         int loadedScenesCount = SceneManager.sceneCount;
@@ -69,9 +67,9 @@ public class SceneLoader : ASingleton<SceneLoader>
         }
     }
 
-    public bool IsLoaded(string sceneName) => m_LoadedScenes.ContainsKey(sceneName);
+    public static bool IsLoaded(string sceneName) => m_LoadedScenes.ContainsKey(sceneName);
 
-    public void LoadScene(
+    public static void LoadScene(
         string sceneName, 
         Action<Scene> onSceneLoadedCallback, 
         LoadSceneMode mode = LoadSceneMode.Single, 

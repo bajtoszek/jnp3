@@ -1,7 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
 public class WaspMovement : APooledObject
 {
+    private readonly int m_AttackAnimatorHash = Animator.StringToHash("Attack");
+
+    private readonly int m_DeathAnimatorHash = Animator.StringToHash("Death");
+
+    [Header("Misc")]
+    [SerializeField]
+    private DestructibleObject m_DestructibleObject = null;
+
+    [SerializeField]
+    private Animator m_Animator = null;
+
+    [Header("Movement")]
     [SerializeField]
     private Vector2 m_MovementSpeed;
 
@@ -11,8 +24,57 @@ public class WaspMovement : APooledObject
     [SerializeField]
     private Rigidbody m_Rigidbody = null;
 
+    [Header("Attack")]
     [SerializeField]
-    private DestructibleObject m_DestructibleObject = null;
+    private WeaponList m_Weapons = null;
+
+    [SerializeField]
+    private float m_AttackTimeSeconds = 2f;
+
+    private Coroutine m_AttackCoroutine = null;
+
+    private void SubscribeToAnimationEvents()
+    {
+        EnemyAnimationEvent[] events = m_Animator.GetBehaviours<EnemyAnimationEvent>();
+
+        for (int i = 0; i < events.Length; i++)
+        {
+            events[i].OnAnimationPointReached += HandleAnimationEvent;
+        }
+    }
+
+    private void HandleAnimationEvent(EEnemyAnimationEvent animationEvent)
+    {
+        switch (animationEvent)
+        {    
+            case EEnemyAnimationEvent.Attack:
+                HandleAttackAnimationEvent();
+                break;
+            case EEnemyAnimationEvent.Death:
+                HandleDeathAnimationEvent();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void HandleAttackAnimationEvent()
+    {
+        m_Weapons.FireAll();
+    }
+
+    private void HandleDeathAnimationEvent()
+    {
+        GameplayManager.Instance.HandlePointsAdded(999);
+
+        if (m_AttackCoroutine != null)
+        {
+            StopCoroutine(m_AttackCoroutine);
+            m_AttackCoroutine = null;
+        }
+
+        ReturnToPool();
+    }
 
     private void FixedUpdate()
     {
@@ -25,8 +87,7 @@ public class WaspMovement : APooledObject
 
     public void HandleDestroyed()
     {
-        GameplayManager.Instance.HandlePoitnsAdded(999);
-        ReturnToPool();
+        m_Animator.SetTrigger(m_DeathAnimatorHash);
     }
 
     public void Reset(Vector3 worldPosition)
@@ -34,6 +95,18 @@ public class WaspMovement : APooledObject
         transform.position = worldPosition;
         gameObject.SetActive(true);
 
+        SubscribeToAnimationEvents();
         m_DestructibleObject.Reset();
+        m_AttackCoroutine = StartCoroutine(AttackCoroutine());
+
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(m_AttackTimeSeconds);
+            m_Animator.SetTrigger(m_AttackAnimatorHash);
+        }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameplayManager : ASingleton<GameplayManager>
@@ -9,7 +11,7 @@ public class GameplayManager : ASingleton<GameplayManager>
 
     private bool m_Paused = false;
 
-    public void HandlePoitnsAdded(int addedPoints)
+    public void HandlePointsAdded(int addedPoints)
     {
         m_Points += addedPoints;
         m_UIGamePanel.SetPoints(m_Points);
@@ -37,12 +39,12 @@ public class GameplayManager : ASingleton<GameplayManager>
 
     public void RestartLevel()
     {
-        SceneLoader.Instance.LoadScene(SceneNamesConsts.SPACE_SCENE_NAME, null);
+        SceneLoader.LoadScene(SceneNamesConsts.SPACE_SCENE_NAME, null);
     }
 
     public void GoToMainMenu()
     {
-        SceneLoader.Instance.LoadScene(SceneNamesConsts.MAIN_MENU_SCENE_NAME, null);
+        SceneLoader.LoadScene(SceneNamesConsts.MAIN_MENU_SCENE_NAME, null);
     }
 
     private void OnDestroy()
@@ -50,11 +52,22 @@ public class GameplayManager : ASingleton<GameplayManager>
         SetPause(false);
     }
 
+    public void HandlePlayerDestroyed()
+    {
+        StartCoroutine(AttackCoroutine());
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        RestartLevel();
+    }
+
 #if UNITY_EDITOR
     [ContextMenu(nameof(AddPoints_DEBUG))]
     private void AddPoints_DEBUG()
     {
-        HandlePoitnsAdded(999);
+        HandlePointsAdded(999);
     }
 #endif
 }

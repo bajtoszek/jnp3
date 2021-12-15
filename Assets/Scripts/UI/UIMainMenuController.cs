@@ -15,7 +15,7 @@ public class UIMainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneLoader.Instance.LoadScene(SceneNamesConsts.SPACE_SCENE_NAME, HandleSceneLaoded);
+        SceneLoader.LoadScene(SceneNamesConsts.SPACE_SCENE_NAME, HandleSceneLaoded);
     }
 
     private void HandleSceneLaoded(Scene scene)
