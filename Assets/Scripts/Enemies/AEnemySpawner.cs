@@ -3,24 +3,14 @@ using UnityEngine;
 public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
 {
     [SerializeField]
-    private float m_SpawnIntervalSeconds = 3f;
-
-    [SerializeField]
-    private T m_EnemyPrefab = null;
-
-    private PrefabPool<T> m_PrefabPool = null;
+    private ASpawnerConfig<T> m_Config = null;
 
     private float m_Timer = 0f;
-
-    private void Awake()
-    {
-        m_PrefabPool = PoolManager.Instance.GetPool(m_EnemyPrefab);
-    }
 
     private void Update()
     {
         m_Timer += Time.deltaTime;
-        if (m_Timer >= m_SpawnIntervalSeconds)
+        if (m_Timer >= m_Config.SpawnIntervalSeconds)
         {
             m_Timer = 0f;
             SpawnEnemy();
@@ -29,7 +19,16 @@ public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
 
     private void SpawnEnemy()
     {
-        T enemy = m_PrefabPool.Get();
+        T randomEnemyPrefab = m_Config.GetRandomEnemy();
+
+        if (randomEnemyPrefab == null)
+        {
+            return;
+        }
+
+        PrefabPool<T> pool = PoolManager.Instance.GetPool(randomEnemyPrefab);
+        T enemy = pool.Get();
+
         SetupEnemy(enemy);
     }
 
