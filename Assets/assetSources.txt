@@ -24,3 +24,6 @@ https://www.youtube.com/watch?v=4hlCOUoc6aQ&ab_channel=Mirza
 
 UI:
 http://theflyingkeyboard.net/unity/unity-ui-9-sliced-image/
+
+hat:
+https://sketchfab.com/3d-models/low-poly-santa-hat-7010557be50e459da9d0a2bcc0cfff4a
