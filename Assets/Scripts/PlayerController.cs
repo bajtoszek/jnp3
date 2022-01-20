@@ -27,6 +27,26 @@ public class PlayerController : MonoBehaviour
 
     private readonly int m_VerticalAnimatorHash = Animator.StringToHash("Vertical");
 
+    [Header("Staminabar")]
+    [SerializeField]
+    private Vector3 m_StaminabarOffset;
+
+    [SerializeField]
+    private Staminabar m_StaminabarPrefab = null;
+
+    private Staminabar m_Staminabar = null;
+
+    [SerializeField]
+    private int m_TotalStamina = 100;
+
+    private float m_CurrentStamina = 100;
+
+    [SerializeField]
+    private int m_StaminaPerShot = 10;
+
+    [SerializeField]
+    private int m_StaminaRegenerationRate = 10;
+
     private void GetInput()
     {
         m_Horizontal = Input.GetAxis("Horizontal");
@@ -45,6 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 newPosition = m_Rigidbody.position +  new Vector3(m_Horizontal, 0f, m_Vertical) * Time.deltaTime * m_Speed;
         m_Rigidbody.MovePosition(newPosition);
+
     }
 
     private void Update()
@@ -52,10 +73,29 @@ public class PlayerController : MonoBehaviour
         GetInput();
         UpdateAnimator();
 
-        if (m_Shoot)
+        if (m_Staminabar == null)
+        {
+            PrefabPool<Staminabar> staminabarPool = PoolManager.Instance.GetPool(m_StaminabarPrefab);
+
+            m_Staminabar = staminabarPool.Get();
+            m_Staminabar.Reset(transform, m_StaminabarOffset);
+        }
+                
+        m_CurrentStamina += Time.deltaTime * m_StaminaRegenerationRate;
+
+        if (m_CurrentStamina > m_TotalStamina) {
+            m_CurrentStamina = m_TotalStamina;
+        }
+
+        if (m_Shoot && m_CurrentStamina >= m_StaminaPerShot)
         {
             m_Weapons.FireAll();
+            
+            m_CurrentStamina -= m_StaminaPerShot;
+
         }
+        
+        m_Staminabar.SetPercentage((float)m_CurrentStamina / m_TotalStamina);
     }
 
     public void HandleDestroyed()
