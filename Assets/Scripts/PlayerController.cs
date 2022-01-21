@@ -81,18 +81,13 @@ public class PlayerController : MonoBehaviour
             m_Staminabar.Reset(transform, m_StaminabarOffset);
         }
                 
-        m_CurrentStamina += Time.deltaTime * m_StaminaRegenerationRate;
-
-        if (m_CurrentStamina > m_TotalStamina) {
-            m_CurrentStamina = m_TotalStamina;
-        }
+        m_CurrentStamina = Mathf.Min(m_CurrentStamina + Time.deltaTime * m_StaminaRegenerationRate, m_TotalStamina);
 
         if (m_Shoot && m_CurrentStamina >= m_StaminaPerShot)
         {
             m_Weapons.FireAll();
             
             m_CurrentStamina -= m_StaminaPerShot;
-
         }
         
         m_Staminabar.SetPercentage((float)m_CurrentStamina / m_TotalStamina);
