@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7092943682926670495}
   m_LocalRotation: {x: -0, y: 0.2164396, z: -0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7342428484917493788}
@@ -153,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7092943683970167190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7342428484917493788}
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7092943684261571922}
   m_LocalRotation: {x: -0, y: -0.21643952, z: -0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7342428484917493788}
@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 7975412469714115238}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 48.407322, y: 13.09, z: 26.04}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1559384134201471249}
   - {fileID: 7092943683970167191}
@@ -338,7 +338,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_TotalHealthpoints: 100
+  m_TotalHealthpoints: 500
   m_FloatingTextPrefab: {fileID: 6849007179813323748, guid: ae34a7d6a8af7c044a8e32075d64cc14,
     type: 3}
   m_HealthbarOffset: {x: 0, y: 1, z: 0}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DestructibleObject: {fileID: 7092943682819560915}
   m_Animator: {fileID: 7092943682819560938}
-  m_MovementSpeed: {x: 15, y: 15}
+  m_MovementSpeed: {x: 3, y: 3}
   m_SideMovementAmplitude: 10
   m_Rigidbody: {fileID: 7092943682819560918}
   m_Weapons:
@@ -393,4 +393,4 @@ MonoBehaviour:
     - {fileID: 7092943684261571924}
     - {fileID: 7092943683970167208}
     - {fileID: 7092943682926670481}
-  m_AttackTimeSeconds: 2
+  m_AttackTimeSeconds: 3
