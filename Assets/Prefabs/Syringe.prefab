@@ -246,7 +246,7 @@ MonoBehaviour:
   m_TotalHealthpoints: 100
   m_FloatingTextPrefab: {fileID: 6849007179813323748, guid: ae34a7d6a8af7c044a8e32075d64cc14,
     type: 3}
-  m_HealthbarOffset: {x: 0, y: 1.5, z: -2.5}
+  m_HealthbarOffset: {x: 0, y: 2, z: 0}
   m_HealthbarPrefab: {fileID: 6075319969767261070, guid: 51faf468b542e5a42a1963aa12c9e206,
     type: 3}
 --- !u!114 &51868811159201843
