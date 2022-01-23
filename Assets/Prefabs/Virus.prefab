@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DestructibleObject: {fileID: 7092943682819560915}
   m_Animator: {fileID: 7092943682819560938}
-  m_MovementSpeed: {x: 10, y: 10}
+  m_MovementSpeed: {x: 15, y: 15}
   m_SideMovementAmplitude: 10
   m_Rigidbody: {fileID: 7092943682819560918}
   m_Weapons:

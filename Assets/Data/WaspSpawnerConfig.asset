@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaspSpawnerConfig
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 6040415532934211483, guid: e066e6748963d3e4999d03759e9d99dd, type: 3}
+  - {fileID: 7092943682819560919, guid: 17f5521c00620f94a913174832b4c900, type: 3}
   - {fileID: 7092943682819560919, guid: 17f5521c00620f94a913174832b4c900, type: 3}
   Bosses: []
   SpawnIntervalSeconds: 3
