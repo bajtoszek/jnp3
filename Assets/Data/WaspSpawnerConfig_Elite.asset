@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - {fileID: 1669447061573671337, guid: 1a0a3cd392e19d44ebe1a389f894d985, type: 3}
+  - {fileID: 1669447061573671337, guid: 1a0a3cd392e19d44ebe1a389f894d985, type: 3}
+  Bosses: []
   SpawnIntervalSeconds: 12
+  BossSpawnRatio: 50
