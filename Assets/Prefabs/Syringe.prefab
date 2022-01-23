@@ -231,9 +231,9 @@ MonoBehaviour:
   OnDestroyed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 898802073087731447}
+      - m_Target: {fileID: 51868811159203791}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: HandleDestroyed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -264,9 +264,9 @@ MonoBehaviour:
   OnDamageApplied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 898802073087731447}
+      - m_Target: {fileID: 51868811159201842}
         m_TargetAssemblyTypeName: DestructibleObject, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ApplyDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
