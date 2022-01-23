@@ -46,7 +46,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 1417982766397289716}
-  m_RateOfFire: 10
+  m_RateOfFire: 10000
 --- !u!1 &3906070068485582705
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 7236133337257188015}
-  m_RateOfFire: 10
+  m_RateOfFire: 10000
 --- !u!1 &4477907624038138463
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 7309579527247302525}
-  m_RateOfFire: 10
+  m_RateOfFire: 100000
 --- !u!1 &6040415532934211461
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     - {fileID: 1627130771970338583}
     - {fileID: 7316650183644461236}
     - {fileID: 3530344881543572941}
-  m_AttackTimeSeconds: 2
+  m_AttackTimeSeconds: 5
 --- !u!136 &6040415532934211480
 CapsuleCollider:
   m_ObjectHideFlags: 0
