@@ -11,6 +11,9 @@ public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
     [SerializeField]
     private int m_BossTimer = 0;
 
+    [SerializeField]
+    private int m_SpawnedEnemies = 0;
+
     private void Update()
     {
         m_Timer += Time.deltaTime;
@@ -25,6 +28,8 @@ public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
             } else {
                 SpawnEnemy();
             }
+
+            m_SpawnedEnemies += 1;
         }
     }
 
@@ -40,7 +45,7 @@ public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
         PrefabPool<T> pool = PoolManager.Instance.GetPool(randomEnemyPrefab);
         T enemy = pool.Get();
 
-        SetupEnemy(enemy);
+        SetupEnemy(enemy, m_SpawnedEnemies * 10);
     }
 
     private void SpawnBoss()
@@ -54,8 +59,8 @@ public abstract class AEnemySpawner<T> : MonoBehaviour where T : APooledObject
         PrefabPool<T> pool = PoolManager.Instance.GetPool(randomBossPrefab);
         T enemy = pool.Get();
 
-        SetupEnemy(enemy);
+        SetupEnemy(enemy, m_SpawnedEnemies * 10);
     }
 
-    protected abstract void SetupEnemy(T enemy);
+    protected abstract void SetupEnemy(T enemy, int deltaTotalHealthPoints=0);
 }
