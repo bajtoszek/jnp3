@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private readonly int m_VerticalAnimatorHash = Animator.StringToHash("Vertical");
 
+    private readonly int m_AttackingHash = Animator.StringToHash("Attacking");
+
     private void GetInput()
     {
         m_Horizontal = Input.GetAxis("Horizontal");
@@ -37,8 +39,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        m_Animator.SetFloat(m_HorizontalAnimatorHash, m_Horizontal);
-        m_Animator.SetFloat(m_VerticalAnimatorHash, m_Vertical);
+        //m_Animator.SetFloat(m_HorizontalAnimatorHash, m_Horizontal);
+        //m_Animator.SetFloat(m_VerticalAnimatorHash, m_Vertical);
+        m_Animator.SetBool(m_AttackingHash, m_Shoot);
     }
 
     private void FixedUpdate()
