@@ -214,6 +214,12 @@ MonoBehaviour:
     - {fileID: 5268103364109231874}
     - {fileID: 9093382528787419047}
   m_Rigidbody: {fileID: 4330969386464535332}
+  m_StaminabarOffset: {x: 0, y: 1.5, z: -3.5}
+  m_StaminabarPrefab: {fileID: 4060298572844473651, guid: 1a9b3e1e7b92a37f8b242a5c2fb3d654,
+    type: 3}
+  m_TotalStamina: 100
+  m_StaminaPerShot: 1
+  m_StaminaRegenerationRate: 3
 --- !u!95 &7626910131852091087
 Animator:
   serializedVersion: 3
