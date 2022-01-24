@@ -90,13 +90,13 @@ public class WaspMovement : APooledObject
         m_Animator.SetTrigger(m_DeathAnimatorHash);
     }
 
-    public void Reset(Vector3 worldPosition)
+    public void Reset(Vector3 worldPosition, int deltaTotalHealthPoints=0)
     {
         transform.position = worldPosition;
         gameObject.SetActive(true);
 
         SubscribeToAnimationEvents();
-        m_DestructibleObject.Reset();
+        m_DestructibleObject.Reset(deltaTotalHealthPoints);
         m_AttackCoroutine = StartCoroutine(AttackCoroutine());
 
     }
