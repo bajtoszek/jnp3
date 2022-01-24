@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 51868811159201842, guid: 564a204ef3b9ab449a44e114d0486842,
         type: 3}
       propertyPath: m_HealthbarOffset.y
-      value: 2
+      value: -0.00378
       objectReference: {fileID: 0}
     - target: {fileID: 518757375637142605, guid: 564a204ef3b9ab449a44e114d0486842,
         type: 3}
