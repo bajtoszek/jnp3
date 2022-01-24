@@ -394,7 +394,7 @@ MonoBehaviour:
     - {fileID: 7092943684261571924}
     - {fileID: 7092943683970167208}
     - {fileID: 7092943682926670481}
-  m_AttackTimeSeconds: 3
+  m_AttackTimeSeconds: 10
 --- !u!111 &4156247135815776526
 Animation:
   m_ObjectHideFlags: 0
