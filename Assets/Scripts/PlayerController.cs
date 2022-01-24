@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private readonly int m_VerticalAnimatorHash = Animator.StringToHash("Vertical");
 
+    private readonly int m_AttackingHash = Animator.StringToHash("Attacking");
+
     [Header("Staminabar")]
     [SerializeField]
     private Vector3 m_StaminabarOffset;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int m_TotalStamina = 100;
 
+    [SerializeField]
     private float m_CurrentStamina = 100;
 
     [SerializeField]
@@ -57,8 +60,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        m_Animator.SetFloat(m_HorizontalAnimatorHash, m_Horizontal);
-        m_Animator.SetFloat(m_VerticalAnimatorHash, m_Vertical);
+        //m_Animator.SetFloat(m_HorizontalAnimatorHash, m_Horizontal);
+        //m_Animator.SetFloat(m_VerticalAnimatorHash, m_Vertical);
+        m_Animator.SetBool(m_AttackingHash, m_Shoot);
     }
 
     private void FixedUpdate()
