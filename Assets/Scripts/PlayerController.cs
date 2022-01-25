@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleDestroyed()
     {
+		FindObjectOfType<AudioManager>().Play("boom");
         GameplayManager.Instance.HandlePlayerDestroyed();
         Destroy(gameObject);
     }

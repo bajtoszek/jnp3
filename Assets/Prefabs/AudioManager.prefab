@@ -43,13 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cde039ca67f224a8c0048230a0efb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: blazer
+    clip: {fileID: 8300000, guid: 1eb3ae1de97730148a2731cfd8f239fa, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: boom
+    clip: {fileID: 8300000, guid: f67ec7e838d7ce74cab3bf2d6c7b14dc, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: points
+    clip: {fileID: 8300000, guid: 7a420a1505efc414b88d53dec06f91e6, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
   background_music:
   - name: Impact
     clip: {fileID: 8300000, guid: 38b564e43f20ac543befc9ef76eedfae, type: 3}
-    volume: 0.5
+    volume: 0.1
     source: {fileID: 0}
   - name: Ethernight Club
     clip: {fileID: 8300000, guid: 9ae3b1212870600449f75ba0319b9f5c, type: 3}
-    volume: 0.5
+    volume: 0.1
     source: {fileID: 0}

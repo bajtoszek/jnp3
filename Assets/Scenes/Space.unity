@@ -347,12 +347,12 @@ PrefabInstance:
     - target: {fileID: 7109021423412519478, guid: 7ba779fe39dd7ec41b618f52602a47a4,
         type: 3}
       propertyPath: background_music.Array.data[0].volume
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7109021423412519478, guid: 7ba779fe39dd7ec41b618f52602a47a4,
         type: 3}
       propertyPath: background_music.Array.data[1].volume
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba779fe39dd7ec41b618f52602a47a4, type: 3}
