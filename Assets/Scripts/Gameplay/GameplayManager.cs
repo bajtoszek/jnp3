@@ -10,9 +10,17 @@ public class GameplayManager : ASingleton<GameplayManager>
     private int m_Points = 0;
 
     private bool m_Paused = false;
+	
+	private AudioManager audioManager;
+	
+	public void Start()
+	{
+		audioManager = FindObjectOfType<AudioManager>();
+	}
 
     public void HandlePointsAdded(int addedPoints)
     {
+		audioManager.Play("points");
         m_Points += addedPoints;
         m_UIGamePanel.SetPoints(m_Points);
     }

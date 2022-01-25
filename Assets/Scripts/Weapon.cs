@@ -15,10 +15,13 @@ public class Weapon : MonoBehaviour
     private PrefabPool<ProjectileMovement> m_Pool = null;
 
     private Coroutine m_LimiterCoroutine = null;
+	
+	private AudioManager audioManager;
 
     private void Awake()
     {
         m_Pool = PoolManager.Instance.GetPool(m_ProjectilePrefab);
+		audioManager = FindObjectOfType<AudioManager>();
     }
 
     public bool Fire()
@@ -27,6 +30,8 @@ public class Weapon : MonoBehaviour
         {
             return false;
         }
+		
+		audioManager.Play("blazer");
 
         m_LimiterCoroutine = StartCoroutine(RateOfFireLimiterCoroutine());
         return true;       
