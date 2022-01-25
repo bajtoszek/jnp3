@@ -46,7 +46,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 1417982766397289716}
-  m_RateOfFire: 10
+  m_RateOfFire: 10000
 --- !u!1 &3906070068485582705
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 7236133337257188015}
-  m_RateOfFire: 10
+  m_RateOfFire: 10000
 --- !u!1 &4477907624038138463
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_ProjectilePrefab: {fileID: 1498458144819777280, guid: d3916c5714f0eb947a5f8bd7eb967103,
     type: 3}
   m_Emitter: {fileID: 7309579527247302525}
-  m_RateOfFire: 10
+  m_RateOfFire: 100000
 --- !u!1 &6040415532934211461
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     - {fileID: 1627130771970338583}
     - {fileID: 7316650183644461236}
     - {fileID: 3530344881543572941}
-  m_AttackTimeSeconds: 2
+  m_AttackTimeSeconds: 5
 --- !u!136 &6040415532934211480
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -581,15 +581,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 083b35cf5b10a9e40b15924dd567bd8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 083b35cf5b10a9e40b15924dd567bd8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -5.78
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 083b35cf5b10a9e40b15924dd567bd8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5
+      value: -1.31
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 083b35cf5b10a9e40b15924dd567bd8f, type: 3}
       propertyPath: m_LocalRotation.w

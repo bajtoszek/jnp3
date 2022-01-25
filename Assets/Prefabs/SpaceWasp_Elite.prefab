@@ -107,6 +107,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1498458144819777280, guid: ecce22eb7aaab7247a724ddaa131b64f,
         type: 3}
+    - target: {fileID: 2266971069179148153, guid: e066e6748963d3e4999d03759e9d99dd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3530344881543572941, guid: e066e6748963d3e4999d03759e9d99dd,
         type: 3}
       propertyPath: m_ProjectilePrefab
@@ -181,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 6040415532934211483, guid: e066e6748963d3e4999d03759e9d99dd,
         type: 3}
       propertyPath: m_AttackTimeSeconds
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6040415532934211483, guid: e066e6748963d3e4999d03759e9d99dd,
         type: 3}
